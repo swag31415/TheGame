@@ -2,21 +2,85 @@
 
 <head>
   <title>The_Game</title>
-  <!-- TODO Add logo -->
-  <!-- <link rel="icon" href="logo.png" type="image/x-icon"> -->
-  <!-- Our Styles -->
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="the_game.png" type="image/x-icon">
   <insert-html link="https://swag31415.github.io/Portfolio/inserts/head.html"></insert-html>
 </head>
 
 <body>
   <insert-html link="https://swag31415.github.io/Portfolio/inserts/menu.html"></insert-html>
   <main class="container">
-    <!-- TODO Add body -->
+    <h1>The Game</h1>
+    <p>A simulation of how <a href="https://en.wikipedia.org/wiki/The_Game_%28mind_game%29">The Game</a> spreads</p>
+    <div class="row">
+      <div class="file-field input-field col s12 m10">
+        <div class="btn">
+          <span>Upload Network File</span>
+          <input id="network_upload" type="file" accept=".txt">
+        </div>
+        <div class="file-path-wrapper">
+          <input id="upload_path" class="file-path validate" type="text" placeholder="An edgelist representation of your network in a txt file">
+          <span class="helper-text" data-error="Please upload a network file"></span>
+        </div>
+      </div>
+      <div class="input-field col s12 m2">
+        <label>
+          <input id="is_directed" type="checkbox" class="filled-in">
+          <span>Is Directed</span>
+        </label>
+      </div>
+      <div class="alg-select input-field col s8 m4">
+        <select id="seed_alg">
+          <option value="" disabled selected>seed algorithm</option>
+          <option value="first">first</option>
+          <option value="random">random</option>
+          <option value="percent">percent</option>
+        </select>
+      </div>
+      <div class="input-field col s4 m2">
+        <input id="seed_opt" class="validate" type="number" disabled required>
+        <label for="seed_opt"></label>
+      </div>
+      <div class="alg-select input-field col s8 m4">
+        <select id="spread_alg">
+          <option value="" disabled selected>spread algorithm</option>
+          <option value="first">first</option>
+          <option value="random">random</option>
+          <option value="percent">percent</option>
+        </select>
+      </div>
+      <div class="input-field col s4 m2">
+        <input id="spread_opt" class="validate" type="number" disabled required>
+        <label for="spread_opt"></label>
+      </div>
+      <div class="input-field col s10 m11">
+        <input id="n_entries" class="validate" type="number" min="1" required>
+        <label for="n_entries">Number of Iterations</label>
+      </div>
+      <div class="input-field col s2 m1">
+        <button id="run_the_game" class="btn" value="Run">Run</button>
+      </div>
+    </div>
+    <div id="results_modal" class="modal">
+      <div class="modal-content">
+        <h4>results</h4>
+        <table class="striped responsive-table">
+          <thead>
+            <tr id="results_headers"></tr>
+          </thead>
+          <tbody id="results_entries"></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close btn-flat">Close</a>
+      </div>
+    </div>
   </main>
   <insert-html link="https://swag31415.github.io/Portfolio/inserts/foot.html"></insert-html>
   <!-- HTML Inserts -->
   <script src="https://swag31415.github.io/Portfolio/js/html_inserts.js"></script>
+  <!-- Jquery Slim -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
   <!-- Our Scripts -->
   <script src="js/main.js"></script>
 </body>
